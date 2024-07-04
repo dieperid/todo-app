@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Todo;
+use Illuminate\Http\Client\Request;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
 
@@ -24,7 +25,7 @@ class TodoList extends Component
 
         $this->reset('name');
 
-        session()->flash('success', 'Todo has been created');
+        session()->flash('success', 'Todo has been created.');
     }
 
     public function render()
