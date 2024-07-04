@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Todo App template</title>
+    <title>Todo App</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -36,19 +36,18 @@
                         <form>
                             <div class="mb-6">
                                 <label for="title"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">*
-                                    Todo </label>
+                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                                    * Todo
+                                </label>
                                 <input type="text" id="title" placeholder="Todo.."
                                     class="bg-gray-100  text-gray-900 text-sm rounded block w-full p-2.5">
-
                                 <span class="text-red-500 text-xs mt-3 block ">Error</span>
-
                             </div>
                             <button type="submit"
-                                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Create
-                                +</button>
+                                class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">
+                                Create +
+                            </button>
                             <span class="text-green-500 text-xs">Saved.</span>
-
                         </form>
                     </div>
                 </div>
@@ -78,9 +77,6 @@
                                 <span class="text-red-500 text-xs block">error</span> -->
 
                     <h3 class="text-lg text-semibold text-gray-800">Todo name</h3>
-
-
-
                     <div class="flex items-center space-x-2">
                         <button class="text-sm text-teal-500 font-semibold rounded hover:text-teal-800">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -114,7 +110,6 @@
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
