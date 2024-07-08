@@ -19,6 +19,9 @@ class TodoList extends Component
 
     public $search;
 
+    /**
+     * Function to create a Todo
+     */
     public function create()
     {
         $validatedItem = $this->validateOnly('name');
@@ -30,6 +33,17 @@ class TodoList extends Component
         session()->flash('success', 'Todo has been created.');
     }
 
+    /**
+     * Function to delete a Todo
+     */
+    public function delete($todoId)
+    {
+        Todo::find($todoId)->delete();
+    }
+
+    /**
+     * Function to render the view of the component
+     */
     public function render()
     {
         return view('livewire.todo-list', [
