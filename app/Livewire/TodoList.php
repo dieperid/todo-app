@@ -42,6 +42,16 @@ class TodoList extends Component
     }
 
     /**
+     * Function to toggle the checkbox status of a Todo
+     */
+    public function toggle($todoId)
+    {
+        $todo = Todo::find($todoId);
+        $todo->completed = !$todo->completed;
+        $todo->save();
+    }
+
+    /**
      * Function to render the view of the component
      */
     public function render()
