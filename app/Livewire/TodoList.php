@@ -36,6 +36,9 @@ class TodoList extends Component
         $this->reset('name');
 
         session()->flash('success', 'Todo has been created.');
+
+        // Reset pagination to the first page
+        $this->resetPage();
     }
 
     /**
