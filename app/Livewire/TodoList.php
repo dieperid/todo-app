@@ -6,9 +6,12 @@ use App\Models\Todo;
 use Illuminate\Http\Client\Request;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\WithPagination;
 
 class TodoList extends Component
 {
+    use WithPagination;
+
     /**
      * Name of the Todo
      */
@@ -30,6 +33,8 @@ class TodoList extends Component
 
     public function render()
     {
-        return view('livewire.todo-list');
+        return view('livewire.todo-list', [
+            'todos' => Todo::latest()->paginate(5)
+        ]);
     }
 }
