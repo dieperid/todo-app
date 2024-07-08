@@ -19,6 +19,11 @@ class TodoList extends Component
 
     public $search;
 
+    public $editingTodoId;
+
+    #[Rule('required|min:3|max:50')]
+    public $editingTodoName;
+
     /**
      * Function to create a Todo
      */
@@ -35,6 +40,7 @@ class TodoList extends Component
 
     /**
      * Function to delete a Todo
+     * @param int $todoId - ID of the Tod
      */
     public function delete($todoId)
     {
@@ -43,12 +49,46 @@ class TodoList extends Component
 
     /**
      * Function to toggle the checkbox status of a Todo
+     * @param int $todoId - ID of the Todo
      */
     public function toggle($todoId)
     {
         $todo = Todo::find($todoId);
         $todo->completed = !$todo->completed;
         $todo->save();
+    }
+
+    /**
+     * Function to edit a Todo
+     * @param int $todoId - ID of the Todo
+     */
+    public function edit($todoId)
+    {
+        $this->editingTodoId = $todoId;
+        $this->editingTodoName = Todo::find($todoId)->name;
+    }
+
+    /**
+     * Function to cancel an edit of a Todo
+     */
+    public function cancelEdit()
+    {
+        $this->reset('editingTodoId', 'editingTodoName');
+    }
+
+    /**
+     * Function to update a Todo
+     */
+    public function update()
+    {
+        $this->validateOnly('editingTodoName');
+        Todo::find($this->editingTodoId)->update(
+            [
+                'name' => $this->editingTodoName
+            ]
+        );
+
+        $this->cancelEdit();
     }
 
     /**
